@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Sierpinski Gasket </title>
+	<link href="../conmon/bgColor.css" rel="stylesheet" type="text/css" />
+	<script id="vertex-shader" type="x-shader/x-vertex">
+		attribute vec4 vPosition;
+		void main(){
+			gl_Position = vPosition;
+		}
+	</script>
+    <script id="fragment-shader" type="x-shader/x-fragment">
+		precision mediump float;
+		void main(){
+			gl_FragColor = vec4( 1.0, 0.0, 0.0, 1.0 );
+		}
+	</script>
+	<script type="text/javascript" src="../conmon/webgl-utils.js"></script>
+    <script type="text/javascript" src="../conmon/initShaders.js"></script>
+    <script type="text/javascript" src="../conmon/gl-matrix-min.js"></script>
+    <script type="text/javascript" src="gasket-triangles.js"></script>
+</head>
+
+<body>
+	<h3>Sierpinski Gasket in 2D</h3>
+	<p>输入0-7的整数(只限于从大到小)</p>
+	<input type="text" id="depth" />
+	<input type="button" value="绘制" onclick="draw()"/>
+	
+	<br />
+	<canvas id="gl-canvas" width="512" height="512"></canvas>
+</body>
+
+</html>
