@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<title>Reverse Lines Triangle</title>
+		<link href="../common/bgColor.css" rel="stylesheet" type="text/css" />
+		<!-- 顶点着色器和片元着色器代码 -->
+		<script id="vertex-shader" type="x-shader/x-vertex">
+			attribute vec4 vPosition;
+			void main(){
+				gl_PointSize = 10.0;
+				gl_Position = vPosition;
+			}
+		</script>
+		<!-- 四边形形 -->
+		<script id="fragment-shader" type="x-shader/x-fragment">
+			precision mediump float;
+			void main(){
+				gl_FragColor = vec4( 1.0, 0.0, 0.0, 1.0 );
+			}
+		</script>
+		<!-- 一组相关的JS库 -->
+		<script type="text/javascript" src="../common/webgl-utils.js"></script>
+		<script type="text/javascript" src="../common/initShaders.js"></script>
+		<script type="text/javascript" src="../common/gl-matrix-min.js"></script>
+		<!-- 绘制图形的JS代码 -->
+		<script type="text/javascript" src="reverse.js"></script>
+	</head>
+	<body onload="DrawTriangle()">
+		<p>可扭转的线框模式</p>
+		<form name="myform"p>
+			输入0-7的整数<input type="text" value="0" name="Count" /> 
+			输入旋转的角度<input type="text" value="0" name="Angle" /> 
+			<input type="button" value="确定" onclick="DrawTriangle()" /> <br />
+		</form>
+		<div id="Triangle"></div>
+	</body>
+</html>

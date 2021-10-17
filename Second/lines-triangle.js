@@ -6,6 +6,7 @@ function draw() {
 	ctx.lineWidth = 1 ;
 	
 	var depth =parseInt(document.getElementById("depth").value);
+	
 	ctx.clearRect(0,0,600,600);
 	function sierpinski(x1,y1,x2,y2,x3,y3,n){
 		

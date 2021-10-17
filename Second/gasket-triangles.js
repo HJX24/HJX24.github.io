@@ -6,10 +6,6 @@ var canvas;
 var gl;
 
 var points = [];
-function clear(){
-	gl.clearColor(0, 0, 0, 0);
-	gl.clear(gl.COLOR_BUFFER_BIT);
-}
 
 function draw(){
 	var numTimesToSubdivide=parseInt(document.getElementById("depth").value);
@@ -98,6 +94,7 @@ function divideTriangle( a, b, c, count ){
 		divideTriangle( a, ab, ca, count );
 		divideTriangle( b, bc, ab, count );
 		divideTriangle( c, ca, bc, count );
+		
 	}
 }
 
