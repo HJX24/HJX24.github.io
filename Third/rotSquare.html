@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Lab3_a</title>
+		<link href="../common/bgColor.css" rel="stylesheet" type="text/css" />
+		<!-- 顶点着色器和片元着色器代码 -->
+		<script id="vertex-shader" type="x-shader/x-vertex">
+			attribute vec4 vPosition;
+			attribute vec4 vColor;
+			varying vec4 fColor;
+			uniform float theta;
+			void main()
+			{
+				float u = cos( theta );
+				float v = sin( theta );
+				gl_Position.x = vPosition.x * u - vPosition.y * v;
+				gl_Position.y = vPosition.x * v + vPosition.y * u;
+				gl_Position.z = 0.0;
+				gl_Position.w = 1.0;
+				fColor=vColor;
+			}
+		</script>
+		<script id="fragment-shader" type="x-shader/x-fragment">
+			precision mediump float;
+			varying vec4 fColor;
+			void main(){
+				gl_FragColor = fColor;
+			}
+		</script>
+		<script type="text/javascript" src="../common/webgl-utils.js"></script>
+		<script type="text/javascript" src="../common/initShaders.js"></script>
+		<script type="text/javascript" src="../common/gl-matrix-min.js"></script>
+		<script type="text/javascript" src="rotSquare.js"></script>
+	</head>
+	<body onload="main()">
+		<h3>动画与交互</h3>
+		<form>
+		  <fieldset style="width: 300px;text-align: left; margin: 0 auto;">
+		    <legend>交互</legend>
+			<p>关于速度：</p>
+			输入角度:<input type="number" id="Angle" value="10" min="0" max="360"
+				style="width: 80px;"> <br />
+			鼠标拖拉: 1 <input type="range" id="Speed" min="1" max="100" value="50" step="1"
+				style="width: 100px; height:15px; "> 100<br />
+			<p>关于方向：</p>
+			点击按钮：<input type="button" value="换个方向" style="width: 80px;" id="Direction" /><br />	
+		  </fieldset>
+		</form>
+		<canvas id="webgl" width="350" height="350"></canvas>
+	</body>
+</html>
