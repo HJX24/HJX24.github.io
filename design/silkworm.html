@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>多变的虫虫</title>
+    </head>
+    <body>
+        <!-- three包 -->
+        <script type="text/javascript" src='lib/Three.js'></script>
+        <script type="text/javascript" src='lib/Controls.js-master/TrackballControls.js'></script>
+        <script type="text/javascript" src='lib/stats.min.js'></script>
+        <script type="text/javascript" src='lib/dat.gui.min.js'></script>
+
+        <!-- 初始化 -->
+        <script type="text/javascript" src='silkworm/init/initStats.js'></script>
+        <script type="text/javascript" src='silkworm/init/initScene.js'></script>
+        <script type="text/javascript" src='silkworm/init/initCamera.js'></script>
+        <script type="text/javascript" src='silkworm/init/initRenderer.js'></script>
+        <script type="text/javascript" src='silkworm/init/initPlane.js'></script>
+        <script type="text/javascript" src='silkworm/init/initLight.js'></script>
+        <script type="text/javascript" src='silkworm/init/initSilkwarm.js'></script>
+        <script type="text/javascript" src='silkworm/init/initTrackballControls.js'></script>
+        <script type="text/javascript" src='silkworm/init/initRender.js'></script>
+        <script type="text/javascript" src='silkworm/init/init.js'></script>
+        <!-- 动画 -->
+        <script type="text/javascript" src='silkworm/anim/animJump.js'></script>
+        <script type="text/javascript" src='silkworm/anim/ArrowHelper.js'></script>
+        <script type="text/javascript" src='silkworm/anim/showRotation.js'></script>
+        <script type="text/javascript" src='silkworm/anim/AddLight.js'></script>
+        <script type="text/javascript" src='silkworm/key/KeyUse.js'></script>
+        <!-- gui -->
+        <script type="text/javascript" src='silkworm/gui/controls.js'></script>
+
+
+        <script type="text/javascript">
+
+            // 根据相机camera的距离差距来改变物体的清晰程度
+            // scene.overrideMaterial = new THREE.MeshDepthMaterial();
+            addGUI();//gui
+            init();
+
+            // window.requestAnimationFrame(this.render.bind(this));
+            render();
+            document.body.appendChild(renderer.domElement);
+
+        </script>
+    </body>
+</html>
